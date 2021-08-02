@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -26,6 +27,9 @@ public class Persona {
 	@ManyToOne
 	@JoinColumn(name = "rol_id")
 	private Rol rol; 
+	
+	@OneToMany(fetch = FetchType.EAGER)
+	private List<Factura_Cabecera> facturascabeceras;
 
 	public Rol getRol() {
 		return rol;
@@ -81,6 +85,14 @@ public class Persona {
 
 	public void setClave(String clave) {
 		this.clave = clave;
+	}
+
+	public List<Factura_Cabecera> getFacturascabeceras() {
+		return facturascabeceras;
+	}
+
+	public void setFacturascabeceras(List<Factura_Cabecera> facturascabeceras) {
+		this.facturascabeceras = facturascabeceras;
 	}
 
 }

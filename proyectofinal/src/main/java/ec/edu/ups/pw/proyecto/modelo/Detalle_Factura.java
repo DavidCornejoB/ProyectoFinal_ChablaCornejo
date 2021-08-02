@@ -18,11 +18,11 @@ public class Detalle_Factura {
 	private double precio;
 	
 	@ManyToOne
-	@JoinColumn(name = "facturacabecera_id")
+	@JoinColumn(name = "facturacabecera_id", referencedColumnName = "facturacabecera_id")
 	private Factura_Cabecera facturacabecera;
 	
 	@ManyToOne
-	@JoinColumn(name = "producto_id")
+	@JoinColumn(name = "producto_id", referencedColumnName = "producto_id")
 	private Producto producto;
 
 	public int getCodigo() {

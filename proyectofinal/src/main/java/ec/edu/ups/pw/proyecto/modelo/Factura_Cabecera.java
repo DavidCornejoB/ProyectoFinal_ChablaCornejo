@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Factura_Cabecera {
@@ -18,7 +19,7 @@ public class Factura_Cabecera {
 	
 	private String fecha;
 	
-	@ManyToOne
+	@OneToOne
 	@JoinColumn(name = "persona_id")
 	private Persona persona;
 
