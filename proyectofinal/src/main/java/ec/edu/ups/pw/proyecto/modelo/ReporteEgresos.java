@@ -2,47 +2,37 @@ package ec.edu.ups.pw.proyecto.modelo;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class ReporteEgresos {
 
 	@Id
+	@Column(name = "reporteegresos_id")
 	private int codigo;
 	
-	@OneToMany
-	private List<Detalle_Factura> listDeatlleFactura;
-	
-	
+	@ManyToOne
+	@JoinColumn(name = "detallefactura_id")
+	private Detalle_Factura detallefactura;
 
-	/**
-	 * @return the listDeatlleFactura
-	 */
-	public List<Detalle_Factura> getListDeatlleFactura() {
-		return listDeatlleFactura;
-	}
-
-	/**
-	 * @param listDeatlleFactura the listDeatlleFactura to set
-	 */
-	public void setListDeatlleFactura(List<Detalle_Factura> listDeatlleFactura) {
-		this.listDeatlleFactura = listDeatlleFactura;
-	}
-
-	/**
-	 * @return the codigo
-	 */
 	public int getCodigo() {
 		return codigo;
 	}
 
-	/**
-	 * @param codigo the codigo to set
-	 */
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
-	
+
+	public Detalle_Factura getDetallefactura() {
+		return detallefactura;
+	}
+
+	public void setDetallefactura(Detalle_Factura detallefactura) {
+		this.detallefactura = detallefactura;
+	}
+
 }

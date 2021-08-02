@@ -11,57 +11,26 @@ import javax.persistence.OneToMany;
 public class Categoria {
 	
 	@Id
+	@Column(name = "categoria_id")
 	private int codigo;
-	
-	@OneToMany
-	private List<Producto> listProducto;
 	
 	@Column(length = 20, name = "cat_nombre")
 	private  String nombre;
 
-	
-	/**
-	 * @return the codigo
-	 */
 	public int getCodigo() {
 		return codigo;
 	}
 
-	/**
-	 * @param codigo the codigo to set
-	 */
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
 
-	/**
-	 * @return the listProducto
-	 */
-	public List<Producto> getListProducto() {
-		return listProducto;
-	}
-
-	/**
-	 * @param listProducto the listProducto to set
-	 */
-	public void setListProducto(List<Producto> listProducto) {
-		this.listProducto = listProducto;
-	}
-
-	/**
-	 * @return the nombre
-	 */
 	public String getNombre() {
 		return nombre;
 	}
 
-	/**
-	 * @param nombre the nombre to set
-	 */
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	
-	
 
 }

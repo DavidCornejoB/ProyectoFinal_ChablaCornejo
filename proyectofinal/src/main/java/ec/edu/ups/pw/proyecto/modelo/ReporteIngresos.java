@@ -2,8 +2,10 @@ package ec.edu.ups.pw.proyecto.modelo;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -11,58 +13,49 @@ import javax.persistence.OneToMany;
 public class ReporteIngresos {
 
 	@Id
+	@Column(name = "reporteingresos_id")
 	private int codigo;
 	
-	@OneToMany
-	private List<Producto> listProducto;
+	private String fecha;
 	
-	@OneToMany
-	private List<Persona> listPersona;
+	@ManyToOne
+	@JoinColumn(name = "producto_id")
+	private Producto producto;
+	
+	@ManyToOne
+	@JoinColumn(name = "persona_id")
+	private Persona persona;
 
-	
-	/**
-	 * @return the codigo
-	 */
 	public int getCodigo() {
 		return codigo;
 	}
 
-	/**
-	 * @param codigo the codigo to set
-	 */
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
 
-	/**
-	 * @return the listProducto
-	 */
-	public List<Producto> getListProducto() {
-		return listProducto;
+	public String getFecha() {
+		return fecha;
 	}
 
-	/**
-	 * @param listProducto the listProducto to set
-	 */
-	public void setListProducto(List<Producto> listProducto) {
-		this.listProducto = listProducto;
+	public void setFecha(String fecha) {
+		this.fecha = fecha;
 	}
 
-	/**
-	 * @return the listPersona
-	 */
-	public List<Persona> getListPersona() {
-		return listPersona;
+	public Producto getProducto() {
+		return producto;
 	}
 
-	/**
-	 * @param listPersona the listPersona to set
-	 */
-	public void setListPersona(List<Persona> listPersona) {
-		this.listPersona = listPersona;
+	public void setProducto(Producto producto) {
+		this.producto = producto;
 	}
-	
-	
-	
+
+	public Persona getPersona() {
+		return persona;
+	}
+
+	public void setPersona(Persona persona) {
+		this.persona = persona;
+	}
 		
 }

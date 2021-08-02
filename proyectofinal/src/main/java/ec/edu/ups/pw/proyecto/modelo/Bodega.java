@@ -5,64 +5,45 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
 public class Bodega {
 	
 	@Id
+	@Column(name = "bodega_id")
 	private int codigo;
 	
-	@Column
+	@ManyToOne
+	@JoinColumn(name = "producto_id")
 	private Producto producto;
 	
-	@OneToMany
-	private List<Producto> listProducto;
-	
-	
+	private int stock;
 
-	/**
-	 * @return the listProducto
-	 */
-	public List<Producto> getListProducto() {
-		return listProducto;
-	}
-
-	/**
-	 * @param listProducto the listProducto to set
-	 */
-	public void setListProducto(List<Producto> listProducto) {
-		this.listProducto = listProducto;
-	}
-
-	/**
-	 * @return the producto
-	 */
 	public Producto getProducto() {
 		return producto;
 	}
 
-	/**
-	 * @param producto the producto to set
-	 */
 	public void setProducto(Producto producto) {
 		this.producto = producto;
 	}
 
-	/**
-	 * @return the codigo
-	 */
 	public int getCodigo() {
 		return codigo;
 	}
 
-	/**
-	 * @param codigo the codigo to set
-	 */
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
-	
-	
+
+	public int getStock() {
+		return stock;
+	}
+
+	public void setStock(int stock) {
+		this.stock = stock;
+	}
 
 }
