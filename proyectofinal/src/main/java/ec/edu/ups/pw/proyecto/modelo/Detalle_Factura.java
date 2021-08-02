@@ -1,62 +1,68 @@
 package ec.edu.ups.pw.proyecto.modelo;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
 public class Detalle_Factura {
 	
 	@Id
+	@Column(name = "detallefactura_id")
 	private int codigo;
 	
-	@ManyToOne
-	private Factura_Cabecera facturaCabecera;
+	private double cantidad;
+	
+	private double precio;
 	
 	@ManyToOne
-	private ReporteEgresos reporteEgresos;
+	@JoinColumn(name = "facturacabecera_id")
+	private Factura_Cabecera facturacabecera;
+	
+	@ManyToOne
+	@JoinColumn(name = "producto_id")
+	private Producto producto;
 
-	/**
-	 * @return the codigo
-	 */
 	public int getCodigo() {
 		return codigo;
 	}
 
-	/**
-	 * @param codigo the codigo to set
-	 */
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
 
-	/**
-	 * @return the facturaCabecera
-	 */
-	public Factura_Cabecera getFacturaCabecera() {
-		return facturaCabecera;
+	public double getCantidad() {
+		return cantidad;
 	}
 
-	/**
-	 * @param facturaCabecera the facturaCabecera to set
-	 */
-	public void setFacturaCabecera(Factura_Cabecera facturaCabecera) {
-		this.facturaCabecera = facturaCabecera;
+	public void setCantidad(double cantidad) {
+		this.cantidad = cantidad;
 	}
 
-	/**
-	 * @return the reporteEgresos
-	 */
-	public ReporteEgresos getReporteEgresos() {
-		return reporteEgresos;
+	public double getPrecio() {
+		return precio;
 	}
 
-	/**
-	 * @param reporteEgresos the reporteEgresos to set
-	 */
-	public void setReporteEgresos(ReporteEgresos reporteEgresos) {
-		this.reporteEgresos = reporteEgresos;
+	public void setPrecio(double precio) {
+		this.precio = precio;
+	}
+
+	public Factura_Cabecera getFacturacabecera() {
+		return facturacabecera;
+	}
+
+	public void setFacturacabecera(Factura_Cabecera facturacabecera) {
+		this.facturacabecera = facturacabecera;
+	}
+
+	public Producto getProducto() {
+		return producto;
+	}
+
+	public void setProducto(Producto producto) {
+		this.producto = producto;
 	}
 	
-
 }
