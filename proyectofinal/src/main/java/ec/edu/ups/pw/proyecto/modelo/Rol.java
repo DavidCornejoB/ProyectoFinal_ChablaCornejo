@@ -1,7 +1,10 @@
 package ec.edu.ups.pw.proyecto.modelo;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Rol {
@@ -10,6 +13,23 @@ public class Rol {
 	private int codigo;
 	
 	private String rol;
+	
+	@OneToMany
+	private List<Persona> listaPersona;
+	
+	
+	/**
+	 * @return the listaPersona
+	 */
+	public List<Persona> getListaPersona() {
+		return listaPersona;
+	}
+	/**
+	 * @param listaPersona the listaPersona to set
+	 */
+	public void setListaPersona(List<Persona> listaPersona) {
+		this.listaPersona = listaPersona;
+	}
 	/**
 	 * @return the codigo
 	 */

@@ -1,8 +1,13 @@
 package ec.edu.ups.pw.proyecto.modelo;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Persona {
@@ -14,9 +19,74 @@ public class Persona {
 	private String nombre;
 	private String apellido;
 	private String direccion;
-	private String correo;
+	private String correo;	
 	private String clave;
 	
+	@ManyToOne
+	private Rol rol; 
+	
+	@OneToMany
+    private List<CarritoCabecera> listCarritoCabecera;
+
+	@OneToMany
+	private List<ReporteIngresos> listReporteIngresos;
+	
+	@OneToMany
+	private List<Factura_Cabecera> listFacturaCabecera;
+	
+	
+	
+	/**
+	 * @return the listReporteIngresos
+	 */
+	public List<ReporteIngresos> getListReporteIngresos() {
+		return listReporteIngresos;
+	}
+	/**
+	 * @param listReporteIngresos the listReporteIngresos to set
+	 */
+	public void setListReporteIngresos(List<ReporteIngresos> listReporteIngresos) {
+		this.listReporteIngresos = listReporteIngresos;
+	}
+	/**
+	 * @return the listFacturaCabecera
+	 */
+	public List<Factura_Cabecera> getListFacturaCabecera() {
+		return listFacturaCabecera;
+	}
+	/**
+	 * @param listFacturaCabecera the listFacturaCabecera to set
+	 */
+	public void setListFacturaCabecera(List<Factura_Cabecera> listFacturaCabecera) {
+		this.listFacturaCabecera = listFacturaCabecera;
+	}
+	/**
+	 * @return the listCarritoCabecera
+	 */
+	public List<CarritoCabecera> getListCarritoCabecera() {
+		return listCarritoCabecera;
+	}
+	/**
+	 * @param listCarritoCabecera the listCarritoCabecera to set
+	 */
+	public void setListCarritoCabecera(List<CarritoCabecera> listCarritoCabecera) {
+		this.listCarritoCabecera = listCarritoCabecera;
+	}
+	/**
+	 * @return the reporteIngresos
+	 */
+	/**
+	 * @return the rol
+	 */
+	public Rol getRol() {
+		return rol;
+	}
+	/**
+	 * @param rol the rol to set
+	 */
+	public void setRol(Rol rol) {
+		this.rol = rol;
+	}
 	/**
 	 * @return the cedula
 	 */
