@@ -1,8 +1,11 @@
 package ec.edu.ups.pw.proyecto.modelo;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Bodega {
@@ -12,6 +15,25 @@ public class Bodega {
 	
 	@Column
 	private Producto producto;
+	
+	@OneToMany
+	private List<Producto> listProducto;
+	
+	
+
+	/**
+	 * @return the listProducto
+	 */
+	public List<Producto> getListProducto() {
+		return listProducto;
+	}
+
+	/**
+	 * @param listProducto the listProducto to set
+	 */
+	public void setListProducto(List<Producto> listProducto) {
+		this.listProducto = listProducto;
+	}
 
 	/**
 	 * @return the producto

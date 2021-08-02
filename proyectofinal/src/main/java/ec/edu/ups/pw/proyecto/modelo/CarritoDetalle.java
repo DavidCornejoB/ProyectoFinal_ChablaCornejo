@@ -1,10 +1,14 @@
 package ec.edu.ups.pw.proyecto.modelo;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
-public class Carrito {
+public class CarritoDetalle {
 	
 	@Id
 	private int codigo;
@@ -13,11 +17,47 @@ public class Carrito {
 	private Double precio;
 	private Double iva;
 	private Double total;
+	
+	@ManyToOne
+	private CarritoCabecera carritoCabecera;
+	
+	@OneToMany
+	private List<Producto> listProducto;
+	
+	
+	/**
+	 * @return the carritoCabecera
+	 */
+	public CarritoCabecera getCarritoCabecera() {
+		return carritoCabecera;
+	}
+	/**
+	 * @param carritoCabecera the carritoCabecera to set
+	 */
+	public void setCarritoCabecera(CarritoCabecera carritoCabecera) {
+		this.carritoCabecera = carritoCabecera;
+	}
+	/**
+	 * @return the producto
+	 */
+	
 	/**
 	 * @return the codigo
 	 */
 	public int getCodigo() {
 		return codigo;
+	}
+	/**
+	 * @return the listProducto
+	 */
+	public List<Producto> getListProducto() {
+		return listProducto;
+	}
+	/**
+	 * @param listProducto the listProducto to set
+	 */
+	public void setListProducto(List<Producto> listProducto) {
+		this.listProducto = listProducto;
 	}
 	/**
 	 * @param codigo the codigo to set
