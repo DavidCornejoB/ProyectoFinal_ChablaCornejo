@@ -1,8 +1,11 @@
 package ec.edu.ups.pw.proyecto.dao;
 
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import ec.edu.ups.pw.proyecto.modelo.ReporteEgresos;
 
@@ -28,6 +31,16 @@ public class ReporteEgresosDAO {
 	public void delete (int codigo) {
 		ReporteEgresos re = em.find(ReporteEgresos.class, codigo);
 		em.remove(re);
+	}
+	
+	public List<ReporteEgresos> getReporteEgresos(){
+		
+		String jpqlReporteEgresos = "SELECT re FROM ReporteEgresos re";
+		
+		Query query = em.createQuery(jpqlReporteEgresos, ReporteEgresos.class);
+		
+		List<ReporteEgresos> reportesEgresos = query.getResultList();
+		return reportesEgresos;
 	}
 
 }

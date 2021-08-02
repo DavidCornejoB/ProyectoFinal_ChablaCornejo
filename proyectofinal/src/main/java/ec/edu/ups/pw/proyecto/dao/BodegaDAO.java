@@ -1,8 +1,11 @@
 package ec.edu.ups.pw.proyecto.dao;
 
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import ec.edu.ups.pw.proyecto.modelo.Bodega;
 
@@ -28,6 +31,15 @@ public class BodegaDAO {
 	public void delete (int codigo) {
 		Bodega b = em.find(Bodega.class, codigo);
 		em.remove(b);
+	}
+	
+	public List<Bodega> getBodegas(){
+		String jpqlBodega = "SELECT b FROM Bodega b";
+		
+		Query query = em.createQuery(jpqlBodega, Bodega.class);
+		
+		List<Bodega> bodegas = query.getResultList();
+		return bodegas;
 	}
 
 }

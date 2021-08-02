@@ -1,8 +1,11 @@
 package ec.edu.ups.pw.proyecto.dao;
 
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import ec.edu.ups.pw.proyecto.modelo.Carrito;
 
@@ -30,4 +33,13 @@ public class CarritoDAO {
 		em.remove(c);
 	}
 
+	public List<Carrito> getCarritos(){
+		
+		String jpqlCarrito = "SELECT c FROM Carrito c";
+		
+		Query query = em.createQuery(jpqlCarrito, Carrito.class);
+		
+		List<Carrito> carritos = query.getResultList();
+		return carritos;
+	}
 }
