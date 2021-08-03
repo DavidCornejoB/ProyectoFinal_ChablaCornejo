@@ -19,7 +19,7 @@ public class Factura_Cabecera {
 	
 	private String fecha;
 	
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "persona_id")
 	private Persona persona;
 
