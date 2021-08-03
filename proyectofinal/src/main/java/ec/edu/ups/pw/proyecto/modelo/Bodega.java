@@ -22,6 +22,11 @@ public class Bodega {
 	
 	private int stock;
 
+	public Bodega() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public Producto getProducto() {
 		return producto;
 	}
