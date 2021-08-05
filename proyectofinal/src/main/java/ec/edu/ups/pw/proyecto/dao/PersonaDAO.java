@@ -33,14 +33,32 @@ public class PersonaDAO {
 		em.remove(p);
 	}
 	
-	public List<Persona> getPersonas(){
+	public List<Persona> getPersonas(String nombre){
 		
-		String jpqlPersona = "SELECT p FROM Persona p";
+		String jpqlPersona = "SELECT p FROM Persona p" + " WHERE correo LIKE ?1";
+		nombre = nombre + "%";
 		
 		Query query = em.createQuery(jpqlPersona, Persona.class);
+		query.setParameter(1, nombre);
 		
 		List<Persona> personas = query.getResultList();
 		return personas;
+	}
+	
+	public List<Persona> getIniciarSesion(Persona persona){
+		
+		String correo = persona.getCorreo();
+		String contrasena = persona.getClave();
+		String jpqlSesion = "SELECT p FROM Persona p" + " WHERE correo LIKE ?1 AND clave LIKE ?2";
+		
+		Query query = em.createQuery(jpqlSesion, Persona.class);
+		query.setParameter(1, correo);
+		query.setParameter(2, contrasena);
+		
+		List<Persona> personas = query.getResultList();
+		
+		return personas;
+		
 	}
 	
 
