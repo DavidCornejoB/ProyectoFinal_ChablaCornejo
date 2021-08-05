@@ -42,5 +42,35 @@ public class RolDAO {
 		List<Rol> roles = query.getResultList();
 		return roles;
 	}
+	
+	public Rol getRolNombre(String nombre) {
+		
+		String jpqlNombre = "SELECT r FROM Rol r" + " WHERE rol LIKE ?1";
+		
+		nombre = nombre + "%";
+		Query query = em.createQuery(jpqlNombre, Rol.class);
+		query.setParameter(1, nombre);
+		
+		Object roles = query.getSingleResult();
+		
+		Rol resultado = (Rol) roles;
+		
+		return resultado;
+		
+	}
+	
+	public List<Rol> getRolNombreList(String nombre) {
+		
+		String jpqlNombreList = "SELECT p FROM Rol r" + " WHERE rol LIKE ?1";
+		
+		nombre = nombre + "%";
+		Query query = em.createQuery(jpqlNombreList, Rol.class);
+		query.setParameter(1, nombre);
+		
+		List<Rol> roles = query.getResultList();
+		
+		return roles;
+			
+	}
 
 }

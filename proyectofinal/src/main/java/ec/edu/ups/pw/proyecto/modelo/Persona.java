@@ -26,7 +26,7 @@ public class Persona {
 	
 	@ManyToOne
 	@JoinColumn(name = "rol_id")
-	private Rol rol; 
+	private Rol rol;
 
 	public Rol getRol() {
 		return rol;
