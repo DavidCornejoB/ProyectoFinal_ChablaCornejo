@@ -22,11 +22,11 @@ public class PersonasService {
 	private RolON rolON;
 	
 	@PUT
-	@Path("/registrarUsuario")
+	@Path("/registrarPersona")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Mensaje registrarUsuario(Persona newPersona) {
-		
+
 		Rol newRol= new Rol();
 		Mensaje msj= new Mensaje();
 		
