@@ -1,5 +1,6 @@
 package ec.edu.ups.pw.proyecto.modelo;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -12,7 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Persona {
+public class Persona implements Serializable{
 	
 	@Id
 	@Column(name = "persona_id", unique = true, nullable = false)
