@@ -16,20 +16,20 @@ public class ProductoDAO {
 	@PersistenceContext
 	private EntityManager em;
 	
-	public void insert (Producto producto) {
+	public void insert(Producto producto) {
 		em.persist(producto);
 	}
 	
-	public void update (Producto producto) {
+	public void update(Producto producto) {
 		em.merge(producto);
 	}
 	
-	public Producto read (int codigo) {
+	public Producto read(int codigo) {
 		Producto p = em.find(Producto.class, codigo);
 		return p;
 	}
 	
-	public void delete (int codigo) {
+	public void delete(int codigo) {
 		Producto p = em.find(Producto.class, codigo);
 		em.remove(p);
 	}
