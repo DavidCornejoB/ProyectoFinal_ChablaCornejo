@@ -35,12 +35,25 @@ public class CarritoCabeceraDAO {
 	
 	public List<CarritoCabecera> getCarritoCabeceras(){
 		
-		String jpqlCarritoCabecera = "SELECT cc FROM CarritoCabecera";
+		String jpqlCarritoCabecera = "SELECT c FROM CarritoCabecera c";
 		
 		Query query = em.createQuery(jpqlCarritoCabecera, CarritoCabecera.class);
 		
 		List<CarritoCabecera> carritocabeceras = query.getResultList();
 		return carritocabeceras;
+	}
+	
+	
+	public List<CarritoCabecera> getCarritoFin() {
+
+		String jpql2 = "SELECT c FROM CarritoCabecera c";
+
+		//nombre = nombre + "%";
+		Query query = em.createQuery(jpql2, CarritoCabecera.class);
+
+		List<CarritoCabecera> carritoCabeceras = query.getResultList();
+		return carritoCabeceras;
+
 	}
 	
 

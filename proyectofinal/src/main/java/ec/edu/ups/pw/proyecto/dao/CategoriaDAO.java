@@ -42,5 +42,15 @@ public class CategoriaDAO {
 		List<Categoria> categorias = query.getResultList();
 		return categorias;
 	}
+	
+public List<Categoria> getCategoriaNombre(String nobre){
+		
+		String jpqlCategoria = "SELECT c FROM Categoria c";
+		
+		Query query = em.createQuery(jpqlCategoria, Categoria.class);
+		
+		List<Categoria> categorias = query.getResultList();
+		return categorias;
+	}
 
 }
