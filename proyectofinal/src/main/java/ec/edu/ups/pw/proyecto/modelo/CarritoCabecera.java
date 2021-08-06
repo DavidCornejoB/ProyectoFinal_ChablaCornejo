@@ -13,7 +13,7 @@ public class CarritoCabecera {
 	
 	@Id
 	@Column(name = "carritocabecera_id")
-	private String codigo;
+	private int codigo;
 	
 	private String fecha;
 	
@@ -29,11 +29,11 @@ public class CarritoCabecera {
 		this.persona = persona;
 	}
 
-	public String getCodigo() {
+	public int getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(String codigo) {
+	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
 
