@@ -16,7 +16,7 @@ public class CarritoDetalle {
 	@Column(name = "carritodetalle_id")
 	private int codigo;
 	
-	private Double cantidad;
+	private int cantidad;
 	private Double precio;
 	private Double iva;
 	private Double total;
@@ -27,7 +27,7 @@ public class CarritoDetalle {
 	
 	@ManyToOne
 	@JoinColumn(name = "producto_id")
-	private Producto listProducto;
+	private Producto producto;
 
 	public CarritoCabecera getCarritoCabecera() {
 		return carritoCabecera;
@@ -45,11 +45,11 @@ public class CarritoDetalle {
 		this.codigo = codigo;
 	}
 
-	public Double getCantidad() {
+	public int getCantidad() {
 		return cantidad;
 	}
 
-	public void setCantidad(Double cantidad) {
+	public void setCantidad(int cantidad) {
 		this.cantidad = cantidad;
 	}
 
@@ -76,5 +76,21 @@ public class CarritoDetalle {
 	public void setTotal(Double total) {
 		this.total = total;
 	}
+
+	/**
+	 * @return the producto
+	 */
+	public Producto getProducto() {
+		return producto;
+	}
+
+	/**
+	 * @param producto the producto to set
+	 */
+	public void setProducto(Producto producto) {
+		this.producto = producto;
+	}
+	
+	
 
 }
