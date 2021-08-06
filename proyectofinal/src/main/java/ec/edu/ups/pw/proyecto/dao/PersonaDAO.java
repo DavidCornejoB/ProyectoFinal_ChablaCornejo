@@ -17,6 +17,7 @@ public class PersonaDAO {
 	
 	public void insert(Persona persona) {
 		em.persist(persona);
+		
 	}
 	
 	public void update(Persona persona) {

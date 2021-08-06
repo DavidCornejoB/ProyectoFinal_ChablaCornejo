@@ -61,7 +61,7 @@ public class RolDAO {
 	
 	public List<Rol> getRolNombreList(String nombre) {
 		
-		String jpqlNombreList = "SELECT p FROM Rol r" + " WHERE rol LIKE ?1";
+		String jpqlNombreList = "SELECT r FROM Rol r" + " WHERE rol LIKE ?1";
 		
 		nombre = nombre + "%";
 		Query query = em.createQuery(jpqlNombreList, Rol.class);

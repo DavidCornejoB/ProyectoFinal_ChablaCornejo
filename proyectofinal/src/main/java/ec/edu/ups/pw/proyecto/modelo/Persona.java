@@ -15,7 +15,7 @@ import javax.persistence.OneToOne;
 public class Persona {
 	
 	@Id
-	@Column(length = 10, name = "persona_id")
+	@Column(name = "persona_id", unique = true, nullable = false)
 	private String Cedula;
 	
 	private String nombre;
